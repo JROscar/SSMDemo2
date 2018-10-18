@@ -1,4 +1,4 @@
-package cn.osacr.Po;
+package cn.oscar.po;
 /**
 客户持久化类
  **/

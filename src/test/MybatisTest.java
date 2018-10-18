@@ -1,4 +1,5 @@
-import cn.osacr.Po.Customer;
+import cn.oscar.po.Customer;
+import cn.oscar.utils.MybatisUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,7 +19,7 @@ public class MybatisTest {
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        Customer customer = sqlSession.selectOne("cn.osacr.Po.Customer.FindById",1);
+        Customer customer = sqlSession.selectOne("Customer.FindById",1);
         System.out.println(customer);
         sqlSession.close();
     }
@@ -30,9 +31,18 @@ public class MybatisTest {
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<Customer> customer = sqlSession.selectList("cn.osacr.Po.Customer.FindByName","r");
+        List<Customer> customer = sqlSession.selectList("Customer.FindByName","r");
         for (Customer customer1 : customer ) {
             System.out.println(customer1);
+        }
+
+    }
+    @Test
+    public void MybatisUtilsTest(){
+        SqlSession sqlSession = MybatisUtils.getSession();
+        List<Customer> customers = sqlSession.selectList("all");
+        for (Customer customer : customers) {
+            System.out.println(customer);
         }
         sqlSession.close();
     }

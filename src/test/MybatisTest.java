@@ -19,7 +19,7 @@ public class MybatisTest {
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        Customer customer = sqlSession.selectOne("Customer.FindById",1);
+        Customer customer = sqlSession.selectOne("FindById",1);
         System.out.println(customer);
         sqlSession.close();
     }
@@ -31,7 +31,7 @@ public class MybatisTest {
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<Customer> customer = sqlSession.selectList("Customer.FindByName","r");
+        List<Customer> customer = sqlSession.selectList("FindByName","r");
         for (Customer customer1 : customer ) {
             System.out.println(customer1);
         }
@@ -45,5 +45,16 @@ public class MybatisTest {
             System.out.println(customer);
         }
         sqlSession.close();
+    }
+    @Test
+    public void FindByIfTest(){
+      SqlSession sqlSession = MybatisUtils.getSession();
+      Customer customer = new Customer();
+//      customer.setUsername("Oscar");
+      customer.setJobs("programer");
+      List<Customer> customers = sqlSession.selectList("FindByIf",customer);
+        for (Customer customer1 : customers) {
+            System.out.println(customer1);
+        }
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.oscar.po.Customer">
+    <select id="FindById" parameterType="Integer" resultType="customer">
+        select * from t_customer where id = #{id}
+    </select>
+    <select id="FindByName" parameterType="String" resultType="customer">
+        select *from t_customer where username like '%${value}%'
+    </select>
+    <select id="all" parameterType="String" resultType="customer">
+        select * from t_customer
+    </select>
+    <select id="FindByIf" parameterType="Customer" resultType="Customer">
+        select * from t_customer
+        <trim prefix="where" prefixOverrides="and">
+        <if test="username !=null and username !=''">
+            and username like concat('%',#{username},'%')
+        </if>
+        <if test="jobs !=null and jobs !=''">
+            and jobs = #{jobs}
+        </if>
+        </trim>
+    </select>
+</mapper>

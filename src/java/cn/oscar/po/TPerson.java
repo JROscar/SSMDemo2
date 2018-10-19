@@ -7,7 +7,7 @@ public class TPerson {
   private String name;
   private Integer age;
   private String sex;
-  private Integer cardId;
+  private TIdCard cardId;
 
 
   public Integer getId() {
@@ -45,13 +45,22 @@ public class TPerson {
     this.sex = sex;
   }
 
+    public TIdCard getCardId() {
+        return cardId;
+    }
 
-  public Integer getCardId() {
-    return cardId;
-  }
+    public void setCardId(TIdCard cardId) {
+        this.cardId = cardId;
+    }
 
-  public void setCardId(Integer cardId) {
-    this.cardId = cardId;
-  }
-
+    @Override
+    public String toString() {
+        return "TPerson{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", cardId=" + cardId +
+                '}';
+    }
 }

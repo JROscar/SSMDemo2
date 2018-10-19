@@ -28,5 +28,7 @@
         <!--<mapper resource="cn/oscar/po/ CustomerMapper.xml"/>-->
         <mapper resource="cn/oscar/po/TIdCardMapper.xml"/>
         <mapper resource="cn/oscar/po/TPersonMapper.xml"/>
+        <mapper resource="cn/oscar/po/TUserMapper.xml"/>
+        <mapper resource="cn/oscar/po/TProductMapper.xml"/>
     </mappers>
 </configuration>

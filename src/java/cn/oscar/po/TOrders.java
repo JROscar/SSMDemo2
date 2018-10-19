@@ -1,13 +1,23 @@
 package cn.oscar.po;
 
 
+import java.util.List;
+
 public class TOrders {
 
   private Integer id;
   private String number;
+//  private List<TProduct> tProductList;
+//
+//    public List<TProduct> gettProductList() {
+//        return tProductList;
+//    }
+//
+//    public void settProductList(List<TProduct> tProductList) {
+//        this.tProductList = tProductList;
+//    }
 
-
-  public Integer getId() {
+    public Integer getId() {
     return id;
   }
 
@@ -30,7 +40,7 @@ public class TOrders {
         return "TOrders{" +
                 "id=" + id +
                 ", number='" + number + '\'' +
-                ", userId=" +
+//                ", tProductList=" + tProductList +
                 '}';
     }
 }

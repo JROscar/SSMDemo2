@@ -3,32 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="db.properties"/>
-    <settings>
-        <!--打开延迟加载开关-->
-        <setting name="lazyLoadingEnabled" value="true"/>
-        <!--将积极加载改为延迟加载，即按需加载-->
-        <setting name="aggressiveLazyLoading" value="false"/>
-    </settings>
+
+    <!--<settings>-->
+        <!--&lt;!&ndash;打开延迟加载开关&ndash;&gt;-->
+        <!--<setting name="lazyLoadingEnabled" value="true"/>-->
+        <!--&lt;!&ndash;将积极加载改为延迟加载，即按需加载&ndash;&gt;-->
+        <!--<setting name="aggressiveLazyLoading" value="false"/>-->
+    <!--</settings>-->
+    <!--别名-->
     <typeAliases>
         <package name="cn.oscar.po"/>
     </typeAliases>
-    <environments default="mysql">
-        <environment id="mysql">
-            <transactionManager type="jdbc"/>
-            <dataSource type="pooled">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
-            </dataSource>
-        </environment>
-    </environments>
+
     <mappers>
         <!--<mapper resource="cn/oscar/po/ CustomerMapper.xml"/>-->
         <mapper resource="cn/oscar/po/TIdCardMapper.xml"/>
         <mapper resource="cn/oscar/po/TPersonMapper.xml"/>
         <mapper resource="cn/oscar/po/TUserMapper.xml"/>
         <mapper resource="cn/oscar/po/TProductMapper.xml"/>
+        <mapper resource="cn/oscar/po/BookMapper.xml"/>
     </mappers>
 </configuration>

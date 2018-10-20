@@ -44,4 +44,14 @@
         <!--注入sqlsessionfactory对象实例-->
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    <!--&lt;!&ndash;mapper代理开发 创建一个bean&ndash;&gt;-->
+    <!--<bean id="bookMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--<property name="mapperInterface" value="cn.oscar.mapper.BookMapper"/>-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+
+    <!--mapper代理开发 基于mapperscannerconfigurer的整合-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.oscar.mapper"/>
+    </bean>
 </beans>

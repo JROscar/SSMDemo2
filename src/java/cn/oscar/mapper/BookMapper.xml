@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.oscar.mapper.BookMapper">
+    <insert id="addBook">
+        insert into book(username,hobby,QQ)
+        values(#{username},#{hobby},#{QQ})
+    </insert>
+    <select id="FindBookById" parameterType="Integer" resultType="Book">
+        select * from book where id = #{id}
+    </select>
+</mapper>

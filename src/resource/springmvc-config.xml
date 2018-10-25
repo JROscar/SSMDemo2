@@ -4,9 +4,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     <!--可以使用该<mvc:annotation-driven>元素启用MVC配置-->
     <mvc:annotation-driven/>
     <!--开启注解扫描-->
@@ -22,4 +24,23 @@
 
     <!--&lt;!&ndash;视图解析器&ndash;&gt;-->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>-->
+
+    <!--定义视图解析器-->
+    <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--配置静态访问映射，不会被前端控制器拦截-->
+    <mvc:resources mapping="/jsp/**" location="/WEB-INF/jsp/"/>
+    <!--拦截器配置-->
+    <!--<mvc:interceptors>-->
+       <!--<mvc:interceptor>-->
+           <!--<mvc:mapping path="/**" />-->
+           <!--<bean class="cn.oscar.interceptor.LoginInterceptor"/>-->
+       <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+    <!--文件上传配置-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 </beans>
